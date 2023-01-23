@@ -1,0 +1,17 @@
+<h1>Lista de habilidades de empleados</h1>
+<!-- Con el siguiente token protegemos el metodo GET -->
+<form method="GET">{% csrf_token %}
+    <input type="text" name="id_persona" id="id_persona" placeholder="Ingrese un ID">
+    <button type="submit">Buscar</button>
+</form>
+
+<h3>Lista de habilidades</h3>
+
+<ul>
+    {% for h in habilidades  %}
+
+    <li>{{ h }}</li>
+    
+    {% endfor %}
+</ul>
+    

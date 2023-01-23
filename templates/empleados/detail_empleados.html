@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Detalles | {{ object.full_name }} {% endblock title %}
+
+<!-- INICIO DEL BODY -->
+
+{% block body %}
+{% include 'includes/header.html' %}
+<h1 class="cell">Detalles de Empleados</h1>
+<div class="cell">
+  <table>
+    <thead>
+      <tr>
+        <th width="200">ID</th>
+        <th>NOMBRE</th>
+        <th>APELLIDOS</th>
+        <th>DEPARTAMENTO</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{empleado.id}}</td>
+        <td>{{empleado.first_name}}</td>
+        <td>{{empleado.last_name}}</td>
+        <td>{{empleado.departamento.short_name}}</td>
+      </tr>
+    </tbody>
+  </table>    
+</div>
+
+<div class="grid-container">
+    <div class="grid-x grid-margin-x align-center">
+      <div class="card cell large-4 " style="width: 300px;">
+        <div class="card-divider">
+          {{ empleado.get_job_display }}
+       </div>
+      
+      
+      {% if empleado.avatar %}
+
+        <img src="{{ empleado.avatar.url }}">
+      {% else %}
+        <h5>Cargue una imagen para este empleado</h5>
+        <img src="{% static 'img/AdminLTELogo.png' %}" alt="">
+      {% endif %}
+      <div class="card-section">
+        <h4> {{ empleado.full_name }} </h4>
+        <p> <span class="label"> Habilidades</span></p>
+
+        <ul class="vertical menu">
+          
+          {% for hab in empleado.habilidades.all  %}
+            <li>{{hab.habilidad}}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+{% endblock body %}
+    
+<!-- FIN DEL BODY -->

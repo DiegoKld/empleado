@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+Agragar datos | Empleado    
+{% endblock title %}
+    
+
+
+{% block body %}
+
+{% include 'includes/header.html' %}
+
+<h1>Registrar nuevo departamento</h1>
+
+
+<div class="grid-container">
+ 
+    <form class="cell callout grid-x grid-margin-x" action="" method="post" ">{% csrf_token %}
+
+        <h3 class="cell">Datos empleado</h3>
+        <div class="medium-6 cell">
+            <label for="">Nombre:
+                {{form.nombre}}
+            </label>
+        </div>
+
+        <div class="medium-6 cell">
+            <label for="">Apellido:
+                {{form.apellido}}
+            </label>
+        </div>
+
+        <h3 class="cell">Datos de departamento</h3>
+
+        <div class="medium-6 cell">
+            <label for="">Departamento:
+                {{form.departamento}}
+            </label>
+        </div>
+        <div class="medium-6 cell">
+            <label for="">Nombre corto:
+                {{form.short_name}}
+            </label>
+        </div>
+
+        
+
+        <div class="medium-12 cell">
+            <button class="button success" type="submit">Guardar</button>
+        </div>
+        </div>
+    </form>
+</div>
+
+{% endblock body %}
+
+
+    
+
+

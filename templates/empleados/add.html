@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+Registrar | Empleado
+    
+{% endblock title %}
+    
+
+{% block body %}
+
+{% include "includes/header.html" %}  
+<!-- CreateView tiene una palabra reservada que tiene pre cargado un codigo html y responde al nombre de "form" el cual muestra los cuadros de dialogo incluidos en el
+"fiels" de la vista -->
+<div class="grid-container">
+    <h1 class="cell">Registrar persona</h1>  
+    <form class="cell grid-x grid-margin-x" action="" method="post" enctype="multipart/form-data">{% csrf_token %}
+        <div class="medium-6 cell">
+            <label for="">Nombre:
+                {{form.first_name}}
+            </label>
+        </div>
+
+        <div class="medium-6 cell">
+            <label for="">Apellido:
+                {{form.last_name}}
+            </label>
+        </div>
+
+        <div class="medium-6 cell">
+            <label for="">Cargo:
+                {{form.job}}
+            </label>
+        </div>
+
+        <div class="medium-6 cell">
+            <label for="">Departamento:
+                {{form.departamento}}
+            </label>
+        </div>
+
+        <div class="medium-12 cell">
+            <label for="">Habilidades:
+                {{form.habilidades}}
+            </label>
+        </div>
+
+        <div class="medium-12 cell">
+            <label for="">Avatar:
+                {{form.avatar}}
+            </label>
+        </div>
+
+        <div class="medium-12 cell">
+            <button class="button success" type="submit">Guardar</button>
+        </div>
+        </div>
+    </form>
+</div>
+
+    
+{% endblock body %}
+

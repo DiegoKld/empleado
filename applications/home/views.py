@@ -1,34 +1,37 @@
-from re import template
 from django.shortcuts import render
+# Vista generica que muestra html
+from django.views.generic import (TemplateView, ListView, CreateView)
 
-#
-
-from django.views.generic import (TemplateView, 
-                                    ListView, 
-                                    CreateView)
-
+#import bd
 from .models import Prueba
+from .forms import PruebaForm
 
-# Create your views here.
-
-class PruebaView(TemplateView):
-    template_name = 'home/prueba.html'
+# Create your views here. or logic controller
 
 
-class PruebaListView(ListView):
-    template_name = "home/lista.html"
-    context_object_name = 'listaNumeros'
-    queryset = ['1', '10', '29', '30']
+class IndexView(TemplateView):
+    template_name = 'home/home.html'
 
-class ListarPrueba(ListView):
-    template_name = "home/lista_prueba.html"
+
+class PruebaListviwe(ListView):
+    template_name = 'home/lista.html'
+    queryset = ['A', 'B', 'C']
+    context_object_name = 'listaPrueba'
+
+
+class ModeloPruebaListView(ListView):
     model = Prueba
-    context_object_name = 'lista'
+    template_name = "home/pruebas.html"
+    context_object_name = 'listaPrueba'
+
 
 class PruebaCreateView(CreateView):
-    template_name = "home/add.html"
     model = Prueba
-    #context_object_name = 'lista'
-    fields = ['titulo', 'subtitulo', 'cantidad']
+    template_name = "home/add.html"
+    # reemplazo los field por form_class ya que los field estan implicitos en esta clase
+    form_class = PruebaForm
+    success_url = '/'
 
 
+class ResumeFoundationView(TemplateView):
+    template_name = "home/resume_foundation.html"
