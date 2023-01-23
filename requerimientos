@@ -6,3 +6,12 @@ python3 -m pip install --upgrade Pillowpip3 install django-ckeditor
 sudo apt install postgresql postgresql-contrib
 pip install psycopg2-binary
 sudo apt install nginx
+
+activar el firewall
+
+pip install gunicorn
+
+#se accede a /bin del entorno virtual y agregamos el archivo gunicorn_start.txt
+
+
+
