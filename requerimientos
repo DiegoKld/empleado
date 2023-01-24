@@ -13,5 +13,7 @@ pip install gunicorn
 
 #se accede a /bin del entorno virtual y agregamos el archivo gunicorn_start.txt
 
+apt install supervisor
+
 
 
